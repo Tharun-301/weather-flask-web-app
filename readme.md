@@ -178,7 +178,7 @@ Deploy 🚀
 **Tharun Sathunuru**
 
 * GitHub: https://github.com/Tharun-301
-* LinkedIn: *(Add your LinkedIn profile)*
+* LinkedIn: linkedin.com/in/tharun-sathunuru-3a773026b
 
 ---
 
