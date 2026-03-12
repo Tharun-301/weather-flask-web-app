@@ -1,82 +1,88 @@
-/* ===== Background ===== */
-body {
+/* =========================
+   RESET
+========================= */
+* {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+/* DEFAULT BACKGROUND */
+body {
+    position: relative;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg,#4facfe,#00f2fe);
-    color: white;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
-.clear {
-    background: linear-gradient(135deg,#f6d365,#fda085);
-}
-
-.clouds {
-    background: linear-gradient(135deg,#bdc3c7,#2c3e50);
-}
-
-.rain {
-    background: linear-gradient(135deg,#4b79a1,#283e51);
+/* OVERLAY (makes text readable) */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;   /* ⭐ FIX */
 }
 
-/* ===== Glass Card ===== */
-.container {
-    text-align: center;
-    padding: 40px;
-    width: 340px;
+/* Keep card above overlay */
+.weather-card {
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(18px);
     border-radius: 20px;
-
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(15px);
-
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    padding: 40px;
+    width: 360px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    position: relative;
+    z-index: 1;
 }
 
-/* City */
+
+/* =========================
+   TEXT
+========================= */
 .city {
-    font-size: 28px;
+    font-size: 30px;
     margin-bottom: 10px;
 }
 
-/* Icon */
-.weather-icon {
-    width: 100px;
-}
-
-/* Temperature */
 .temperature {
-    font-size: 56px;
+    font-size: 60px;
     font-weight: bold;
 }
 
-/* Status */
 .status {
     font-size: 20px;
-    margin-bottom: 15px;
     opacity: 0.9;
+    margin-bottom: 15px;
 }
 
-/* Details */
 .details p {
-    margin: 5px 0;
-    font-size: 16px;
+    margin: 8px 0;
+    font-size: 17px;
 }
 
-/* Input */
+/* =========================
+   FORM
+========================= */
 input {
     width: 100%;
     padding: 12px;
     margin-top: 20px;
     border-radius: 8px;
     border: none;
+    outline: none;
 }
 
-/* Button */
 button {
     width: 100%;
-    margin-top: 10px;
+    margin-top: 12px;
     padding: 12px;
     border-radius: 8px;
     border: none;
@@ -84,14 +90,34 @@ button {
     color: #0077ff;
     font-weight: bold;
     cursor: pointer;
+    transition: 0.25s;
 }
 
 button:hover {
-    opacity: 0.9;
     transform: translateY(-2px);
     background: #f1f1f1;
 }
-.details p {
-    margin: 8px 0;
-    font-size: 17px;
+
+/* =========================
+   BACKGROUNDS
+========================= */
+
+body.default {
+    background-image: url("/static/images/weather-bg.jpg");
+}
+
+body.clear {
+    background-image: url("/static/images/clear.jpg");
+}
+
+body.clouds {
+    background-image: url("/static/images/clouds.jpg");
+}
+
+body.rain {
+    background-image: url("/static/images/rain.jpg");
+}
+
+body.night {
+    background-image: url("/static/images/night.jpg");
 }

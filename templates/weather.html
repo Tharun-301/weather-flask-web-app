@@ -1,41 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} Weather</title>
+
     <link href="{{ url_for('static', filename='styles/style.css') }}" rel="stylesheet" />
 </head>
 
-<body class="{{ status|lower }}">
-<div class="container">
+<body class="{{ status }}">
 
+<div class="weather-card">
+
+    <!-- City -->
     <h1 class="city">{{ title }}</h1>
 
     <!-- Weather Icon -->
     <img 
         src="https://openweathermap.org/img/wn/{{ icon }}@2x.png"
         class="weather-icon"
-        alt="weather icon"
+        alt="Weather Icon"
     />
 
+    <!-- Temperature -->
     <div class="temperature">{{ temp }}°</div>
 
+    <!-- Status -->
     <div class="status">{{ status }}</div>
 
+    <!-- Details -->
     <div class="details">
-        <p>🤔 Feels like {{ feels_like }}°</p>
+        <p>🌡️ Feels like {{ feels_like }}°</p>
         <p>💧 Humidity: {{ humidity }}%</p>
         <p>🌬️ Wind: {{ wind_speed }} mph</p>
     </div>
 
+    <!-- Search -->
     <form action="/weather">
-        <input type="text" name="city" placeholder="Search city..." />
+        <input type="text" name="city" placeholder="Search city..." required />
         <button type="submit">Search</button>
     </form>
 
 </div>
-</body>
 
+</body>
 </html>
